@@ -37,18 +37,18 @@
 		data-uk-height-viewport="min-height: 400">
 
 		<!-- NAV -->
-		<div class="uk-position-top">
+		<div class="uk-position-top uk-sticky-fixed uk-overlay-primary">
 			<div class="uk-container uk-container-small">
 				<nav class="uk-navbar-container uk-navbar-transparent" data-uk-navbar>
 					<div class="uk-navbar-right">
 						<div class="uk-navbar-item">
-							<span>نه به تصادف...!</span>
+							<h3 style="margin: 0 0 0 0">نه به <span class="uk-text-danger">تصادف</span>...!</h3>
 						</div>
 					</div>
 					<div class="uk-navbar-left">
 						<ul class="uk-navbar-nav">
-							<li class="uk-visible@s"><a href="">مسابقه</a></li>
-							<li class="uk-visible@s"><a href="">وبلاگ</a></li>
+							<li><a href="">مسابقه</a></li>
+							<li><a href="">وبلاگ</a></li>
 						</ul>
 					</div>
 				</nav>
@@ -57,9 +57,78 @@
 		<!-- /NAV -->
 
 		<!-- TEXT -->
-		<div class="uk-container uk-container-small uk-flex-auto uk-text-center"
-			data-uk-scrollspy="target: > .animate; cls: uk-animation-slide-bottom-small uk-invisible; delay: 300">
-			
+		<div class="uk-flex-auto js-slideshow-animation uk-slideshow"
+			uk-slideshow="ratio: true; autoplay: true; autoplay-interval: 5000; pause-on-hover: false;">
+
+			<ul class="uk-slideshow-items" uk-height-viewport="min-height: 300" style="min-height: calc(100vh);">
+				<li class="uk-active uk-transition-active">
+					<div
+						class="uk-position-cover uk-animation-kenburns uk-animation-reverse uk-transform-origin-bottom-left">
+						<img src="img/dark.jpg" alt="" uk-cover="" class="uk-cover"
+							style="height: 800px; width: 1200px;">
+					</div>
+					<div class="uk-position-center uk-position-medium uk-text-center">
+						<div uk-slideshow-parallax="scale: 1,1,0.8" style="transform: scale(1);" class="">
+							<h1 class="uk-heading-primary" uk-slideshow-parallax="x: 200,0,0"
+								style="transform: translate3d(0px, 0px, 0px);">Heading</h1>
+							<p class="uk-text-lead" uk-slideshow-parallax="x: 400,0,0;"
+								style="transform: translate3d(0px, 0px, 0px);">Lorem ipsum dolor sit amet.</p>
+						</div>
+					</div>
+				</li>
+				<li class="uk-active uk-transition-active">
+					<div
+						class="uk-position-cover uk-animation-kenburns uk-animation-reverse uk-transform-origin-bottom-left">
+						<img src="img/photo2.jpg" alt="" uk-cover="" class="uk-cover"
+							style="height: 800px; width: 1200px;">
+					</div>
+					<div class="uk-position-center uk-position-medium uk-text-center">
+						<div uk-slideshow-parallax="scale: 1,1,0.8" style="transform: scale(1);" class="">
+							<h1 class="uk-heading-primary" uk-slideshow-parallax="x: 200,0,0"
+								style="transform: translate3d(0px, 0px, 0px);">Heading</h1>
+							<p class="uk-text-lead" uk-slideshow-parallax="x: 400,0,0;"
+								style="transform: translate3d(0px, 0px, 0px);">Lorem ipsum dolor sit amet.</p>
+						</div>
+					</div>
+				</li>
+				<li class="uk-active uk-transition-active">
+					<div
+						class="uk-position-cover uk-animation-kenburns uk-animation-reverse uk-transform-origin-bottom-left">
+						<img src="img/light.jpg" alt="" uk-cover="" class="uk-cover"
+							style="height: 800px; width: 1200px;">
+					</div>
+					<div class="uk-position-center uk-position-medium uk-text-center">
+						<div uk-slideshow-parallax="scale: 1,1,0.8" style="transform: scale(1);" class="">
+							<h1 class="uk-heading-primary" uk-slideshow-parallax="x: 200,0,0"
+								style="transform: translate3d(0px, 0px, 0px);">Heading</h1>
+							<p class="uk-text-lead" uk-slideshow-parallax="x: 400,0,0;"
+								style="transform: translate3d(0px, 0px, 0px);">Lorem ipsum dolor sit amet.</p>
+						</div>
+					</div>
+				</li>
+			</ul>
+
+			<a class="uk-slidenav-large uk-position-center-left uk-position-small uk-hidden-hover uk-slidenav-previous uk-icon uk-slidenav"
+				href="#" uk-slidenav-previous="" uk-slideshow-item="previous"><svg width="25" height="40"
+					viewBox="0 0 25 40" xmlns="http://www.w3.org/2000/svg" data-svg="slidenav-previous-large">
+					<polyline fill="none" stroke="#000" stroke-width="2" points="20.527,1.5 2,20.024 20.525,38.547 ">
+					</polyline>
+				</svg></a>
+			<a class="uk-slidenav-large uk-position-center-right uk-position-small uk-hidden-hover uk-slidenav-next uk-icon uk-slidenav"
+				href="#" uk-slidenav-next="" uk-slideshow-item="next"><svg width="25" height="40" viewBox="0 0 25 40"
+					xmlns="http://www.w3.org/2000/svg" data-svg="slidenav-next-large">
+					<polyline fill="none" stroke="#000" stroke-width="2" points="4.002,38.547 22.527,20.024 4,1.5 ">
+					</polyline>
+				</svg></a>
+
+			<div class="uk-position-bottom-center uk-position-medium">
+				<ul class="uk-slideshow-nav uk-dotnav uk-flex-center uk-margin">
+					<li uk-slideshow-item="0" class="uk-active"><a href="#"></a></li>
+					<li uk-slideshow-item="1" class=""><a href="#"></a></li>
+					<li uk-slideshow-item="2" class=""><a href="#"></a></li>
+				</ul>
+			</div>
+
 		</div>
 		<!-- /TEXT -->
 	</div>
