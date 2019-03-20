@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'mellatweb-isans';
+    src: url('fonts/mellatweb-isans.eot');
+    src: url('fonts/mellatweb-isans.eot?#iefix') format('embedded-opentype'),
+         url('fonts/mellatweb-isans.woff') format('woff'),
+         url('fonts/mellatweb-isans.ttf') format('truetype');
+         font-weight: normal;
+         font-style: normal;
+}
+
+h1,h2,h3,h4,h5,h6,input,body,p,b{
+	font-family:'mellatweb-isans'!important
+}
