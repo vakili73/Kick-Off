@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="fa-ir" dir="rtl">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>کمپین - نه به تصادف</title>
+	<!-- CSS FILES -->
+	<link rel="stylesheet" type="text/css"
+		href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.3/css/uikit-rtl.min.css">
+	<link rel="stylesheet" type="text/css"
+		href="https://unpkg.com/persian-datepicker@latest/dist/css/persian-datepicker.min.css">
+	<style>
+		.wrap::before {
+			position: absolute;
+			height: 100vh;
+			width: 100vw;
+			content: '';
+			z-index: 1;
+			background-color: rgba(0, 0, 0, 0.5);
+		}
+
+		.lead {
+			font-size: 1.175em;
+			font-weight: 300;
+		}
+
+		.uk-logo img {
+			height: 28px;
+		}
+	</style>
+	<link rel="stylesheet" type="text/css" href="css/cards.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+	<!-- JS FILES -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body
+	class="uk-light wrap uk-background-norepeat uk-background-cover uk-background-center-center uk-cover-container uk-background-secondary">
+	<img data-srcset="https://picsum.photos/640/700/?image=482 640w,
+		             https://picsum.photos/960/700/?image=482 960w,
+		             https://picsum.photos/1200/900/?image=482 1200w,
+		             https://picsum.photos/2000/1000/?image=482 2000w" sizes="100vw"
+		data-src="https://picsum.photos/1200/900/?image=482" alt="" data-uk-cover data-uk-img>
+	<div class="uk-flex uk-flex-center uk-flex-middle uk-height-viewport uk-position-z-index uk-position-relative"
+		data-uk-height-viewport="min-height: 400">
+
+		<!-- NAV -->
+		<div class="uk-position-top">
+			<div class="uk-container uk-container-small">
+				<nav class="uk-navbar-container uk-navbar-transparent" data-uk-navbar>
+					<div class="uk-navbar-right">
+						<div class="uk-navbar-item">
+							<a class="uk-logo" href="index.html">
+								<h3 style="margin: 0 0 0 0">نه به <span class="uk-text-danger">تصادف</span>...!</h3>
+							</a>
+						</div>
+					</div>
+					<div class="uk-navbar-left">
+						<ul class="uk-navbar-nav">
+							<li><a href="blog.html">وبلاگ</a></li>
+							<li><a href="">مسابقه</a></li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+		</div>
+		<!-- /NAV -->
+
+		<!-- TEXT -->
+		<div class="uk-container uk-container-small uk-flex-auto uk-text-center"
+			data-uk-scrollspy="target: > .animate; cls: uk-animation-slide-bottom-small uk-invisible; delay: 300">
+			<h2 class="uk-heading-primary animate uk-invisible" style="font-weight: 700;">کمپین نوروزی نه به <span
+					class="uk-text-danger">تصادف</span>...!</h2>
+			<div class="uk-width-4-5@m uk-margin-auto animate uk-invisible">
+				<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ad, reiciendis maxime,
+					facilis nam natus incidunt provident.</p>
+			</div>
+			<div class="uk-margin-medium-top animate uk-invisible" data-uk-margin
+				data-uk-scrollspy-class="uk-animation-fade uk-invisible">
+				<div class="uk-grid" uk-grid>
+					<div class="uk-width-1-2">
+						<div class="uk-inline uk-width-1-1">
+							<span class="uk-form-icon uk-form-icon-flip" data-uk-icon="icon: calendar"></span>
+							<input id="startDatetime" class="uk-input uk-form-large" required placeholder="از تاریخ"
+								type="text">
+						</div>
+					</div>
+					<div class="uk-inline uk-width-1-2">
+						<span class="uk-form-icon uk-form-icon-flip" data-uk-icon="icon: calendar"></span>
+						<input id="endDatetime" class="uk-input uk-form-large" required placeholder="تا تاریخ">
+					</div>
+				</div>
+				<div class="uk-grid" uk-grid>
+					<div class="uk-inline uk-width-1-1">
+						<span class="uk-form-icon uk-form-icon-flip" data-uk-icon="icon: world"></span>
+						<input class="uk-input uk-form-large" required
+							placeholder="محل حضور - مثال: 45 کیلومتری جاده کرمان بم محور هفت باغ..." type="text">
+					</div>
+				</div>
+				<div class="uk-grid" uk-grid>
+					<div class="uk-width-1-1">
+						<div class="uk-form-controls">
+							<button id="campSubmit" type="submit"
+								class="uk-button uk-button-default uk-button-large uk-width-1-1">
+								اعلام آمادگی
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /TEXT -->
+
+	</div>
+
+	<!-- JS FILES -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.2/js/uikit.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.2/js/uikit-icons.min.js"></script>
+	<script src="js/cards.js"></script>
+	<script src="https://unpkg.com/persian-date@latest/dist/persian-date.min.js"></script>
+	<script src="https://unpkg.com/persian-datepicker@latest/dist/js/persian-datepicker.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			var optDatetime = {
+				timePicker: {
+					enabled: true,
+					second: {
+						enabled: false,
+					},
+					meridian: {
+						enabled: true,
+					},
+				},
+				toolbox: {
+					calendarSwitch: {
+						enabled: false,
+					}
+				},
+				position: [-30, 40]
+			};
+			$("#startDatetime").pDatepicker(optDatetime);
+			$("#endDatetime").pDatepicker(optDatetime);
+			$("#campSubmit").on("click", function (e) {
+				e.preventDefault();
+				$(this).attr("disabled", "");
+				$(this).html('<div uk-spinner="" class="uk-spinner uk-icon"></div>');
+				setTimeout(function () {
+					UIkit.notification('Now you can filter cards with search field!<br>Type "amazing", "music" or "nature"');
+					$("#campSubmit").removeAttr("disabled");
+					$("#campSubmit").text("اعلام آمادگی");
+				}, 1000);
+			});
+		});
+	</script>
+</body>
+
+</html>
