@@ -79,39 +79,41 @@
 			</div>
 			<div class="uk-margin-medium-top animate uk-invisible" data-uk-margin
 				data-uk-scrollspy-class="uk-animation-fade uk-invisible">
-				<div class="uk-grid" uk-grid>
-					<div class="uk-inline uk-width-1-2">
-						<span class="uk-form-icon uk-form-icon-flip" data-uk-icon="icon: calendar"></span>
-						<input id="startDatetime" class="uk-input uk-form-large" required placeholder="از تاریخ"
-							type="text">
-					</div>
-					<div class="uk-inline uk-width-1-2">
-						<span class="uk-form-icon uk-form-icon-flip" data-uk-icon="icon: calendar"></span>
-						<input id="endDatetime" class="uk-input uk-form-large" required placeholder="تا تاریخ">
-					</div>
-				</div>
-				<div class="uk-grid" uk-grid>
-					<div class="uk-inline uk-width-1-1">
-						<span class="uk-form-icon uk-form-icon-flip" data-uk-icon="icon: world"></span>
-						<input class="uk-input uk-form-large" required
-							placeholder="محل حضور - مثال: 45 کیلومتری جاده کرمان بم محور هفت باغ..." type="text">
-					</div>
-				</div>
-				<div class="uk-grid" uk-grid>
-					<div class="uk-inline uk-width-1-2">
-						<span class="uk-form-icon uk-form-icon-flip" data-uk-icon="icon: phone"></span>
-						<input id="startDatetime" class="uk-input uk-form-large" required placeholder="شماره همراه"
-							type="text">
-					</div>
-					<div class="uk-width-1-2">
-						<div class="uk-form-controls">
-							<button id="campSubmit" type="submit"
-								class="uk-button uk-button-default uk-button-large uk-width-1-1">
-								اعلام آمادگی
-							</button>
+				<form>
+					<div class="uk-grid" uk-grid>
+						<div class="uk-inline uk-width-1-2">
+							<span class="uk-form-icon uk-form-icon-flip" data-uk-icon="icon: calendar"></span>
+							<input id="startDatetime" class="uk-input uk-form-large" required placeholder="از تاریخ"
+								type="text">
+						</div>
+						<div class="uk-inline uk-width-1-2">
+							<span class="uk-form-icon uk-form-icon-flip" data-uk-icon="icon: calendar"></span>
+							<input id="endDatetime" class="uk-input uk-form-large" required placeholder="تا تاریخ">
 						</div>
 					</div>
-				</div>
+					<div class="uk-grid" uk-grid>
+						<div class="uk-inline uk-width-1-1">
+							<span class="uk-form-icon uk-form-icon-flip" data-uk-icon="icon: world"></span>
+							<input class="uk-input uk-form-large" required
+								placeholder="محل حضور - مثال: 45 کیلومتری جاده کرمان بم محور هفت باغ..." type="text">
+						</div>
+					</div>
+					<div class="uk-grid" uk-grid>
+						<div class="uk-inline uk-width-1-2">
+							<span class="uk-form-icon uk-form-icon-flip" data-uk-icon="icon: phone"></span>
+							<input id="startDatetime" class="uk-input uk-form-large" required pattern="09[0-9]{9}"
+								placeholder="شماره همراه" type="text">
+						</div>
+						<div class="uk-width-1-2">
+							<div class="uk-form-controls">
+								<button id="campSubmit" type="submit"
+									class="uk-button uk-button-default uk-button-large uk-width-1-1">
+									اعلام آمادگی
+								</button>
+							</div>
+						</div>
+					</div>
+				</form>
 			</div>
 		</div>
 		<!-- /TEXT -->
@@ -147,7 +149,7 @@
 			$("#startDatetime").pDatepicker(optDatetime);
 			$("#endDatetime").pDatepicker(optDatetime);
 			$("#campSubmit").on("click", function (e) {
-				e.preventDefault();
+				// e.preventDefault();
 				$(this).attr("disabled", "");
 				$(this).html('<div uk-spinner="" class="uk-spinner uk-icon"></div>');
 				setTimeout(function () {
