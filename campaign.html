@@ -79,7 +79,7 @@
 			</div>
 			<div class="uk-margin-medium-top animate uk-invisible" data-uk-margin
 				data-uk-scrollspy-class="uk-animation-fade uk-invisible">
-				<form>
+				<form id="campForm">
 					<div class="uk-grid" uk-grid>
 						<div class="uk-inline uk-width-1-2">
 							<span class="uk-form-icon uk-form-icon-flip" data-uk-icon="icon: calendar"></span>
@@ -148,16 +148,18 @@
 			};
 			$("#startDatetime").pDatepicker(optDatetime);
 			$("#endDatetime").pDatepicker(optDatetime);
-			$("#campSubmit").on("click", function (e) {
-				// e.preventDefault();
-				$(this).attr("disabled", "");
-				$(this).html('<div uk-spinner="" class="uk-spinner uk-icon"></div>');
-				setTimeout(function () {
-					UIkit.notification('Now you can filter cards with search field!<br>Type "amazing", "music" or "nature"');
-					$("#campSubmit").removeAttr("disabled");
-					$("#campSubmit").text("اعلام آمادگی");
-				}, 1000);
-			});
+			if ($('form#campForm > :input[required]:visible').val() != "") {
+				$("#campForm").submit(function (e) {
+					e.preventDefault();
+					$("#campSubmit").attr("disabled", "");
+					$("#campSubmit").html('<div uk-spinner="" class="uk-spinner uk-icon"></div>');
+					setTimeout(function () {
+						UIkit.notification('Now you can filter cards with search field!<br>Type "amazing", "music" or "nature"');
+						$("#campSubmit").removeAttr("disabled");
+						$("#campSubmit").text("اعلام آمادگی");
+					}, 1000);
+				});
+			}
 		});
 	</script>
 </body>
