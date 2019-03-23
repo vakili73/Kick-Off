@@ -81,7 +81,7 @@
 			axios.get(basePath + 'users?filter[limit]=6&filter[order]=score DESC').then(function (res) {
 				res.data.forEach((element, index) => {
 					var temp = itemTemplate;
-					temp = temp.replace("{{0}}", index);
+					temp = temp.replace("{{0}}", index + 1);
 					temp = temp.replace("{{1}}", element.phone.replace(/^(\d{4})(\d{3})(\d{4})$/, '$3***$1'));
 					temp = temp.replace("{{2}}", element.score);
 					$("#leaderboard").append(temp);
