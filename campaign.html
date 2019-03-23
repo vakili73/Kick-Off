@@ -94,15 +94,15 @@
 					<div class="uk-grid" uk-grid>
 						<div class="uk-inline uk-width-1-1">
 							<span class="uk-form-icon uk-form-icon-flip" data-uk-icon="icon: world"></span>
-							<input class="uk-input uk-form-large" required
+							<input id="location" class="uk-input uk-form-large" required
 								placeholder="محل حضور - مثال: 45 کیلومتری جاده کرمان بم محور هفت باغ..." type="text">
 						</div>
 					</div>
 					<div class="uk-grid" uk-grid>
 						<div class="uk-inline uk-width-1-2">
 							<span class="uk-form-icon uk-form-icon-flip" data-uk-icon="icon: phone"></span>
-							<input id="startDatetime" class="uk-input uk-form-large" required pattern="09[0-9]{9}"
-								placeholder="شماره همراه" type="text">
+							<input id="phone" class="uk-input uk-form-large" required pattern="09[0-9]{9}"
+								placeholder="شماره همراه _________09" type="text">
 						</div>
 						<div class="uk-width-1-2">
 							<div class="uk-form-controls">
@@ -121,6 +121,8 @@
 	</div>
 
 	<!-- JS FILES -->
+	<script src="js/hash-string.min.js"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.2/js/uikit.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.2/js/uikit-icons.min.js"></script>
 	<script src="js/cards.js"></script>
@@ -128,6 +130,7 @@
 	<script src="https://unpkg.com/persian-datepicker@latest/dist/js/persian-datepicker.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function () {
+			const basePath = "http://127.0.0.1:3000/";
 			var optDatetime = {
 				initialValue: false,
 				timePicker: {
@@ -148,16 +151,67 @@
 			};
 			$("#startDatetime").pDatepicker(optDatetime);
 			$("#endDatetime").pDatepicker(optDatetime);
-			if ($('form#campForm > :input[required]:visible').val() != "") {
+			if ($("form#campForm > :input[required]:visible").val() != "") {
 				$("#campForm").submit(function (e) {
 					e.preventDefault();
+
 					$("#campSubmit").attr("disabled", "");
 					$("#campSubmit").html('<div uk-spinner="" class="uk-spinner uk-icon"></div>');
-					setTimeout(function () {
-						UIkit.notification('Now you can filter cards with search field!<br>Type "amazing", "music" or "nature"');
-						$("#campSubmit").removeAttr("disabled");
-						$("#campSubmit").text("اعلام آمادگی");
-					}, 1000);
+
+					axios.get(basePath + 'users?filter[where][phone]=' + $("#phone").val())
+						.then(function (res) {
+							if (res.data.length > 0) {
+								var usr = res.data[0];
+								if ('campaigns' in usr) {
+									usr.campaigns.push({
+										start: $("#startDatetime").val(),
+										end: $("#endDatetime").val(),
+										location: $("#location").val()
+									});
+								} else {
+									usr.campaigns = [{
+										start: $("#startDatetime").val(),
+										end: $("#endDatetime").val(),
+										location: $("#location").val()
+									}];
+								}
+								axios.patch(basePath + 'users/' + usr.phone, usr).then(
+									function (res) {
+										UIkit.notification('اعلام آمادگی شما با موفقیت ثبت شد. متشکریم!');
+										$("#campSubmit").removeAttr("disabled");
+										$("#campSubmit").text("اعلام آمادگی");
+									}
+								).catch(function (err) {
+									UIkit.notification('خطایی در ارتباط با سرور رخ داده، لطفا پس از مدتی دوباره سعی کنید!');
+									$("#campSubmit").removeAttr("disabled");
+									$("#campSubmit").text("اعلام آمادگی");
+								});
+							} else {
+								var usr = {};
+								usr.phone = $("#phone").val();
+								usr.code = hash(usr.phone).toString(16);
+								usr.campaigns = [{
+									start: $("#startDatetime").val(),
+									end: $("#endDatetime").val(),
+									location: $("#location").val()
+								}];
+								axios.post(basePath + 'users', usr).then(
+									function (res) {
+										UIkit.notification('اعلام آمادگی شما با موفقیت ثبت شد. متشکریم!');
+										$("#campSubmit").removeAttr("disabled");
+										$("#campSubmit").text("اعلام آمادگی");
+									}
+								).catch(function (err) {
+									UIkit.notification('خطایی در ارتباط با سرور رخ داده، لطفا پس از مدتی دوباره سعی کنید!');
+									$("#campSubmit").removeAttr("disabled");
+									$("#campSubmit").text("اعلام آمادگی");
+								});
+							}
+						}).catch(function (err) {
+							UIkit.notification('خطایی در ارتباط با سرور رخ داده، لطفا پس از مدتی دوباره سعی کنید!');
+							$("#campSubmit").removeAttr("disabled");
+							$("#campSubmit").text("اعلام آمادگی");
+						});
 				});
 			}
 		});
