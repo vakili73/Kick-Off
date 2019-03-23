@@ -1,91 +1,97 @@
 <!DOCTYPE html>
 <html lang="fa-ir" dir="rtl">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>نفرات برتر - نه به تصادف</title>
-		<!-- CSS FILES -->
-		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.3/css/uikit-rtl.min.css">
-		<style>
-			.uk-container-small {
-				max-width: 1020px;
-			}
-		</style>
-		<link rel="stylesheet" type="text/css" href="css/style.css">
-	</head>
-	<body>
-		<!--HEADER-->
-		<header class="uk-box-shadow-small" style="background-color: white">
-			<div class="uk-container uk-container-expand">
-				<nav class="uk-navbar" id="navbar" data-uk-navbar>
-					<div class="uk-navbar-center">
-						<a href="index.html" class="uk-logo" title="">
-							<h3 style="margin: 0 0 0 0">نه به <span class="uk-text-danger">تصادف</span>...!</h3>
-						</a>
-					</div>
-					<div class="uk-navbar-left">
-						<div class="uk-navbar-item">
-							<a href="competition.html" class="uk-button uk-button-default">مسابقه</a>
-						</div>
-					</div>
-				</nav>
-			</div>
-		</header>
-		<!--/HEADER-->
-		
-		<!--AUTHOR-->
-		<section id="more" class="uk-section uk-section-default" style="padding-top: 0px; padding-bottom: 0px;">
-			<div class="uk-container">
-				<h3 class="uk-text-bold">جدول <span class="uk-text-success">امتیازات</span>...</h3>
-				<div class="uk-overflow-auto">
-					<table class="uk-table uk-table-middle uk-table-divider uk-table-large uk-table-justify" data-uk-scrollspy="cls:uk-animation-fade;">
-						<thead>
-							<tr>
-								<th>رتبه</th>
-								<th>شماره همراه</th>
-								<th class="uk-background-muted">مجموع امتیازات</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td class="uk-width-1-5">1</td>
-								<td class="uk-width-3-5">0903***1657</td>
-								<td class="uk-width-1-5 uk-background-muted">476</td>
-							</tr>
-							<tr>
-								<td class="uk-width-1-5">2</td>
-								<td class="uk-width-3-5">0903***1657</td>
-								<td class="uk-width-1-5 uk-background-muted">476</td>
-							</tr>
-							<tr>
-								<td class="uk-width-1-5">3</td>
-								<td class="uk-width-3-5">0903***1657</td>
-								<td class="uk-width-1-5 uk-background-muted">476</td>
-							</tr>
-							<tr>
-								<td class="uk-width-1-5">4</td>
-								<td class="uk-width-3-5">0903***1657</td>
-								<td class="uk-width-1-5 uk-background-muted">476</td>
-							</tr>
-							<tr>
-								<td class="uk-width-1-5">5</td>
-								<td class="uk-width-3-5">0903***1657</td>
-								<td class="uk-width-1-5 uk-background-muted">476</td>
-							</tr>
-							<tr>
-								<td class="uk-width-1-5">6</td>
-								<td class="uk-width-3-5">0903***1657</td>
-								<td class="uk-width-1-5 uk-background-muted">476</td>
-							</tr>
-						</tbody>
-					</table>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>نفرات برتر - نه به تصادف</title>
+	<!-- CSS FILES -->
+	<link rel="stylesheet" type="text/css"
+		href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.3/css/uikit-rtl.min.css">
+	<style>
+		.uk-container-small {
+			max-width: 1020px;
+		}
+	</style>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+	<!-- JS FILES -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+	<!--HEADER-->
+	<header class="uk-box-shadow-small" style="background-color: white">
+		<div class="uk-container uk-container-expand">
+			<nav class="uk-navbar" id="navbar" data-uk-navbar>
+				<div class="uk-navbar-center">
+					<a href="index.html" class="uk-logo" title="">
+						<h3 style="margin: 0 0 0 0">نه به <span class="uk-text-danger">تصادف</span>...!</h3>
+					</a>
 				</div>
+				<div class="uk-navbar-left">
+					<div class="uk-navbar-item">
+						<a href="competition.html" class="uk-button uk-button-default">مسابقه</a>
+					</div>
+				</div>
+			</nav>
+		</div>
+	</header>
+	<!--/HEADER-->
+
+	<!--AUTHOR-->
+	<section id="more" class="uk-section uk-section-default" style="padding-top: 0px; padding-bottom: 0px;">
+		<div class="uk-container">
+			<h3 class="uk-text-bold">جدول <span class="uk-text-success">امتیازات</span>...</h3>
+			<div class="uk-overflow-auto">
+				<table class="uk-table uk-table-middle uk-table-divider uk-table-large uk-table-justify"
+					data-uk-scrollspy="cls:uk-animation-fade;">
+					<thead>
+						<tr>
+							<th>رتبه</th>
+							<th>شماره همراه</th>
+							<th class="uk-background-muted">مجموع امتیازات</th>
+						</tr>
+					</thead>
+					<tbody id="leaderboard">
+
+					</tbody>
+				</table>
 			</div>
-		</section>
-		
-		<!-- JS FILES -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.2/js/uikit.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.2/js/uikit-icons.min.js"></script>
-		
-	</body>
+		</div>
+	</section>
+
+	<!-- JS FILES -->
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.2/js/uikit.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.2/js/uikit-icons.min.js"></script>
+
+	<script>
+		$(document).ready(function () {
+			const basePath = "http://127.0.0.1:3000/";
+
+			var itemTemplate = `
+				<tr>
+					<td class="uk-width-1-5">{{0}}</td>
+					<td class="uk-width-3-5">{{1}}</td>
+					<td class="uk-width-1-5 uk-background-muted">{{2}}</td>
+				</tr>
+			`;
+
+			axios.get(basePath + 'users?filter[limit]=6&filter[order]=score DESC').then(function (res) {
+				res.data.forEach((element, index) => {
+					var temp = itemTemplate;
+					temp = temp.replace("{{0}}", index);
+					temp = temp.replace("{{1}}", element.phone.replace(/^(\d{4})(\d{3})(\d{4})$/, '$3***$1'));
+					temp = temp.replace("{{2}}", element.score);
+					$("#leaderboard").append(temp);
+				});
+			}).catch(function (err) {
+				console.debug(err);
+			});
+		});
+	</script>
+
+</body>
+
 </html>
