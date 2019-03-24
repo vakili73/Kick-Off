@@ -301,7 +301,7 @@
 							.then(function (res) {
 								var sumScore = 0;
 								res.data.questions.forEach((q, i) => {
-									if ($("input[name=radio" + (i + 1) + "]").val() == q.answer) {
+									if ($("input[name=radio" + (i + 1) + "]:checked").val() == q.answer) {
 										sumScore += q.score;
 									}
 								});
